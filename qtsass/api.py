@@ -223,12 +223,9 @@ def watch(source, destination, compiler=None, Watcher=None):
     :param Watcher: Defaults to qtsass.watchers.Watcher (optional)
     :returns: qtsass.watchers.Watcher instance
     """
-    if os.path.isfile(source):
-        watch_dir = os.path.dirname(source)
+    if os.path.exists(source):
+        watch_dir = os.path.realpath(source)
         compiler = compiler or compile_filename
-    elif os.path.isdir(source):
-        watch_dir = source
-        compiler = compiler or compile_dirname
     else:
         raise ValueError('source arg must be a dirname or filename...')
 
