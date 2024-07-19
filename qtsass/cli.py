@@ -90,7 +90,7 @@ def main():
     dir_mode = os.path.isdir(args.input)
 
     if file_mode and not args.output:
-        with open(args.input, 'r') as f:
+        with open(args.input, 'r', encoding='utf8') as f:
             string = f.read()
 
         css = compile(

@@ -66,7 +66,7 @@ def qss_importer(*include_paths):
     def import_and_conform_file(import_file):
         """Return base file and conformed scss file."""
         real_import_file = find_file(import_file)
-        with open(real_import_file, 'r') as f:
+        with open(real_import_file, 'r', encoding='utf8') as f:
             import_str = f.read()
 
         return [(import_file, scss_conform(import_str))]

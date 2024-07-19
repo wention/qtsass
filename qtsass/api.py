@@ -124,7 +124,7 @@ def compile_filename(input_file, output_file=None, **kwargs):
     input_root = os.path.abspath(os.path.dirname(input_file))
     kwargs.setdefault('include_paths', [input_root])
 
-    with open(input_file, 'r') as f:
+    with open(input_file, 'r', encoding='utf8') as f:
         string = f.read()
 
     _log.info('Compiling {}...'.format(os.path.normpath(input_file)))
@@ -135,7 +135,7 @@ def compile_filename(input_file, output_file=None, **kwargs):
         if not os.path.isdir(output_root):
             os.makedirs(output_root)
 
-        with open(output_file, 'w') as css_file:
+        with open(output_file, 'w', encoding='utf8') as css_file:
             css_file.write(css)
             _log.info('Created CSS file {}'.format(
                 os.path.normpath(output_file)))

@@ -26,7 +26,7 @@ def example(*paths):
 def touch(file):
     """Touch a file."""
 
-    with open(str(file), 'a'):
+    with open(str(file), 'a', encoding='utf8'):
         os.utime(str(file), None)
 
 
